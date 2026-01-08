@@ -1,4 +1,4 @@
 body {background-color: lightblue;}
 h1 {color: navy}
 p {color: black}
-#map {height: 180px;}
+#map {height: 400px; width: 700px}

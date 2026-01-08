@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web GIS Map Application</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="unpkg.com"
+       integrity="sha256-p4NxAoEvBAP1UIff/xTx7/DMd2Rz/Qz9JUMxQ/AwSVA="
+       crossorigin=""/>
+    <!-- Include Leaflet JavaScript -->
+    <script src="unpkg.com"
+       integrity="sha256-p4NxAoEvBAP1UIff/xTx7/DMd2Rz/Qz9JUMxQ/AwSVA="
+       crossorigin=""></script>
+    <style>
+        /* Set the map container to fill a specific height on the page */
+        #mapid { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
 
+    <h1>My First Interactive Web Map</h1>
+    <!-- The div where the map will be rendered -->
+    <div id="mapid"></div>
+
+    <script>
+        // Initialize the map and set its view to a given geographical center and zoom level
+        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+        // Add an OpenStreetMap tile layer for the map background
+        L.tileLayer('tile.openstreetmap.org{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; [OpenStreetMap](www.openstreetmap.org) contributors'
+        }).addTo(mymap);
+
+        // Add a marker to the map
+        var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+        // Bind a popup to the marker
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    </script>
+
+</body>
+</html>

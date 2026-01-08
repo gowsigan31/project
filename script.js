@@ -1,4 +1,4 @@
-// Initialize the map centered on Toronto
+// Initialize the map centered on Toronto and set zoom to 11
 const map = L.map('map').setView([43.6532, -79.3832], 11);
 
 // Add OpenStreetMap tiles

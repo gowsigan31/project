@@ -69,25 +69,3 @@ L.control
   .addTo(map);
 });
 
- // 2. Create the custom control
-    var HomeControl = L.Control.extend({
-        options: {
-            position: 'topleft' // Position on the map
-        },
-
-        onAdd: function (map) {
-            var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-            container.innerHTML = '<button class="home-button" title="Go home">🏠</button>'; // Use a suitable icon or text
-
-            // 3. Add the click event listener
-            container.onclick = function() {
-                map.setView(homeCoords, homeZoom); // Reset view to home
-            }
-
-            return container;
-        }
-    });
-
-    // Add the control to the map
-    map.addControl(new HomeControl());
-

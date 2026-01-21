@@ -43,21 +43,3 @@ p {color: black}
   border: 1px solid grey;
 }
 
-.home-button {
-            background-color: white;
-            border: 2px solid rgba(0,0,0,0.2);
-            border-radius: 4px;
-            cursor: pointer;
-            padding: 0 8px; /* Added padding for better appearance */
-            height: 30px;
-            width: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px; /* Adjust as needed for an icon */
-            text-align: center;
-            line-height: 30px;
-        }
-        .home-button:hover {
-            background-color: #f4f4f4;
-        }

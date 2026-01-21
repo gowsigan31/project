@@ -6,6 +6,8 @@ p {color: black}
 
 #map {height: 600px; width: 900px}
 
+div {height: 600px; width: 900px}
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #333;

@@ -54,3 +54,7 @@ p {color: black}
   width: 34px;
   height: 34px;
 }
+
+.hidden {
+  display: none;
+}

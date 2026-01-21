@@ -27,3 +27,5 @@ legend.onAdd = () => {
   div.insertAdjacentHTML("beforeend", text);
   return div;
 };
+
+legend.addTo(map);

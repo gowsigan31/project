@@ -5,6 +5,17 @@ const initialZoom = 12; // Adjust zoom level as needed
 // Initialize the map and set its view
 const map = L.map('map').setView(torontoCoords, initialZoom);
 
+// Add the locate control
+L.control.locate({
+    position: "topright", // Position of the button
+    strings: {
+        title: "Show me where I am!" // Custom title for the button
+    },
+    locateOptions: {
+        enableHighAccuracy: true // Use GPS for better accuracy
+    }
+}).addTo(map);
+
 // Add a tile layer (OpenStreetMap) to the map [2]
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; [OpenStreetMap](www.openstreetmap.org) contributors',

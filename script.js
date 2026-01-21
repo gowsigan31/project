@@ -16,8 +16,14 @@ L.marker(torontoCoords).addTo(map)
     .bindPopup('A center point in the City of Toronto.')
     .openPopup();
 
-// obtaining coordinates after clicking on the map
-map.on("click", (e) => {
-  const markerPlace = document.querySelector(".marker-position");
-  markerPlace.textContent = e.latlng;
-});
+// create legend
+const legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = () => {
+  const div = L.DomUtil.create("div", "description");
+  L.DomEvent.disableClickPropagation(div);
+  const text =
+    "<b>Lorem Ipsum</b> Helloo!";
+  div.insertAdjacentHTML("beforeend", text);
+  return div;
+};

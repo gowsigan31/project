@@ -1,9 +1,9 @@
+// Initialize the map and set its view
+const map = L.map('map').setView(torontoCoords, initialZoom);
+
 // Approximate coordinates for the center of Toronto [1]
 const torontoCoords = [43.6532, -79.3832];
 const initialZoom = 12; // Adjust zoom level as needed
-
-// Initialize the map and set its view
-const map = L.map('map').setView(torontoCoords, initialZoom);
 
 // Add a tile layer (OpenStreetMap) to the map [2]
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

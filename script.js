@@ -67,7 +67,6 @@ L.control
     imperial: false,
   })
   .addTo(map);
-});
 
 setTimeout(function () {
    window.dispatchEvent(new Event("resize"));

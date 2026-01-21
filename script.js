@@ -67,3 +67,21 @@ L.control
     imperial: false,
   })
   .addTo(map);
+
+// Add fullscreen control
+			map.addControl(
+				new L.Control.FullScreen({
+					position: 'topleft',
+					title: 'Show me the fullscreen!',
+					titleCancel: 'Exit fullscreen mode'
+				})
+			);
+
+// Detect fullscreen toggling
+			map.on('enterFullscreen', () => console.log('enterFullscreen'));
+			map.on('exitFullscreen', () => console.log('exitFullscreen'));
+
+// Programmatic toggle function
+			function toggleFullscreen() {
+				map.fullscreenControl.toggleFullScreen();
+			}

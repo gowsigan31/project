@@ -1,6 +1,7 @@
 // Approximate coordinates for the center of Toronto [1]
 const torontoCoords = [43.6532, -79.3832];
 const initialZoom = 12; // Adjust zoom level as needed
+L.control.zoom({ position: "topright" }).addTo(map);
 
 // Initialize the map and set its view
 const map = L.map('map').setView(torontoCoords, initialZoom);

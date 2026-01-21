@@ -1,7 +1,7 @@
 body {background-color: lightblue;}
 h1 {color: navy}
 p {color: black}
-#map {height: 400px; width: 700px}
+#map {height: 1000px; width: 1500px}
 
 /* Add a black background color to the top navigation */
 .topnav {

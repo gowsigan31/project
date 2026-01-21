@@ -16,6 +16,14 @@ L.marker(torontoCoords).addTo(map)
     .bindPopup('A center point in the City of Toronto.')
     .openPopup();
 
+// config map
+const config = {
+  minZoom: 7,
+  maxZoom: 18,
+  // https://github.com/Leaflet/Leaflet.fullscreen
+  fullscreenControl: true,
+};
+
 // create legend
 const legend = L.control({ position: "bottomleft" });
 

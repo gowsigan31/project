@@ -69,3 +69,6 @@ L.control
   .addTo(map);
 });
 
+setTimeout(function () {
+   window.dispatchEvent(new Event("resize"));
+}, 500);

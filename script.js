@@ -67,74 +67,27 @@ L.control
     imperial: false,
   })
   .addTo(map);
-
-// create custom button
-const customControl = L.Control.extend({
-  // button position
-  options: {
-    position: "topleft",
-  },
-
-  // method
-  onAdd: (map) => {
-    console.log(map.getCenter());
-    // create button
-    const btn = L.DomUtil.create("button");
-    btn.title = "back to home";
-    btn.innerHTML = htmlTemplate;
-    btn.className += "leaflet-bar back-to-home hidden";
-
-    return btn;
-  },
 });
 
-// adding new button to map controll
-map.addControl(new customControl());
+ // 2. Create the custom control
+    var HomeControl = L.Control.extend({
+        options: {
+            position: 'topleft' // Position on the map
+        },
 
-// on drag end
-map.on("moveend", getCenterOfMap);
+        onAdd: function (map) {
+            var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+            container.innerHTML = '<button class="home-button" title="Go home">🏠</button>'; // Use a suitable icon or text
 
-const buttonBackToHome = document.querySelector(".back-to-home");
+            // 3. Add the click event listener
+            container.onclick = function() {
+                map.setView(homeCoords, homeZoom); // Reset view to home
+            }
 
-function getCenterOfMap() {
-  buttonBackToHome.classList.remove("hidden");
+            return container;
+        }
+    });
 
-  buttonBackToHome.addEventListener("click", () => {
-    map.flyTo([lat, lng], zoom);
-  });
+    // Add the control to the map
+    map.addControl(new HomeControl());
 
-  map.on("moveend", () => {
-    const { lat: latCenter, lng: lngCenter } = map.getCenter();
-
-    const latC = latCenter.toFixed(3) * 1;
-    const lngC = lngCenter.toFixed(3) * 1;
-
-    const defaultCoordinate = [+lat.toFixed(3), +lng.toFixed(3)];
-
-    const centerCoordinate = [latC, lngC];
-
-    if (compareToArrays(centerCoordinate, defaultCoordinate)) {
-      buttonBackToHome.classList.add("hidden");
-    }
-  });
-}
-
-const compareToArrays = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-
-const osmLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-const cartoDB = '<a href="http://cartodb.com/attributions">CartoDB</a>';
-
-const osmUrl = "http://tile.openstreetmap.org/{z}/{x}/{y}.png";
-const osmAttrib = `&copy; ${osmLink} Contributors`;
-const landUrl =
-  "https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png";
-const cartoAttrib = `&copy; ${osmLink} Contributors & ${cartoDB}`;
-
-const osmMap = L.tileLayer(osmUrl, { attribution: osmAttrib });
-const landMap = L.tileLayer(landUrl, { attribution: cartoAttrib });
-const baseLayers = {
-  "OSM Mapnik": osmMap,
-  CartoDB: landMap,
-};
-
-L.control.layers(baseLayers).addTo(map);

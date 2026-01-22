@@ -34,6 +34,22 @@ p {color: black}
   color: white;
 }
 
+.topnav ul {
+    display: flex; /* 1. Enables Flexbox on the parent container */
+    justify-content: space-around; /* 2. Distributes space evenly */
+    list-style: none; /* Removes default bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    width: 100%; /* Ensures the list spans the full width of its parent */
+    align-items: center; /* Vertically centers the items if the nav bar has a defined height */
+}
+
+.topnav li a {
+    text-decoration: none; /* Removes default underline from links */
+    padding: 10px 15px; /* Adds internal spacing around link text */
+    display: block; /* Makes the entire padding area clickable */
+}
+
 .description {
   width: 200px;
   font-size: 12px;
